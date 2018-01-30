@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News Feed</title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="navbar-fixed-right.min.css">
+  <link rel="stylesheet" href="navbar-fixed-left.min.css">
+  <link rel="stylesheet" href="docs.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="main2.js"></script>
+ <script src="main.js"></script>
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+</head>
+<style>
+  .author {
+    border: 1px solid grey;
+    padding: 10px;
+    font-size: 17px;
+  }
+
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+
+  form.example button:hover {
+    background: #0b7dda;
+  }
+
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+
+  .footer {
+
+    transition: all 0.5s ease;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 2px;
+    margin: 3px;
+    background: #2196F3;
+    overflow: scroll;
+    height: 80px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .box {
+    transition: all 0.5s ease;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 2px;
+    margin: 3px;
+    background: #f1f1f1;
+    overflow: scroll;
+    height: 500px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .bboxx {
+    transition: all 0.5s ease;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 2px;
+    margin: 3px;
+    background: #f1f1f1;
+    height: 500px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.footer{
+  position: relative;
+  bottom: 30px;
+
+}
+
+</style>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-left">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="logo.jpg" alt="HTML5 Icon" width="60" height="60">
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="selected"><a href="main.html">Home</a></li>
+         
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search By Channel<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channel<span class="caret"></span></a>
+                    <ul>
+                        
+                            <li><a href="#" onclick="clicking1()"> BBC News</button></li>
+                            <li><a href="#" onclick="clicking2()">CNN News</button></li>
+                            <li><a href="#" onclick="clicking3()">BBC Sport</a></li>
+                            <li><a href="#" onclick="clicking4()">ESPN</a></li>
+                            <li><a href="#" onclick="clicking5()">Buisness Insider</a></li>
+                            <li><a href="#" onclick="clicking6()">Buzzfeed</a></li>
+                            <li><a href="#" onclick="clicking7()">CNBC</a></li>
+                            <li><a href="#" onclick="clicking8()">ABC News</a></li></ul>          
+                         
+            
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+            </br>
+              
+                
+           <div class="dropdown">
+
+ <select onchange="test()" id="soflow" style="  border-radius: 10px; border: 2px solid rgb(112, 153, 207);
+ padding:5px;width:200px;">
+ <option value="sleect" active>Select</option>
+ <option value="cnn">CNN</option>
+  <option value="bbc">BBC</option>
+   <option value="bbc-sport">BBC-SPORT</option>
+  <option value="buzzfeed">BUZZFEED</option>
+   <option value="espn">ESPN</option>
+  <option value="business-insider">BUSINESS INSIDER</option>
+   <option value="cnbc">CNBC</option>
+  <option value="abc-news-au">ABC-NEWS</option>
+</select>
+
+</div>
+<input type="text" placeholder="Search.." name="search2" id="input1" class="fa fa-search" style="border-radius: 10px;height:28px;width:150px;">
+<input class="btn btn-default" id="checkbtn" value="Search" onclick="answers()" type="submit" style="  border-radius:10px; border: 2px solid rgb(112, 153, 207);
+padding:2px;width: 90px;">
+            </li>
+            <li>
+              
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+<div class="box" id="news">
+
+      <script>
+   
+fetch("https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=0df4ccc6d62e404db6c965c1a04a7276")
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+   
+      response.json().then(function(data) {
+        processData(data)
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
+function processData(data) {
+  var articleItems = [];
+
+  for (let i = 0; i < data.articles.length; i++) {
+
+    let author = data.articles[i].author;
+
+    let title = data.articles[i].title;
+    let description = data.articles[i].description;
+    let artUrl = data.articles[i].url;
+
+    var string=`<div class="author"><b>Author:</b> ${author}  </div><div class="title"><b>Title:</b></br><a href=${artUrl}> ${title}</a> </div ><div class="description"><b>Description:</b></br> ${description }</div >`;
+     
+articleItems.push(string);
+
+   
+
+}
+
+
+ document.querySelector('.box').innerHTML=articleItems.join()
+}
+
+</script>
+    </div>
+  </div>
+  </div>
+  </br>
+  </br>
+</body>
+
+<footer class="footer">
+    <font color="white" size="3px">
+        
+        
+        <div class="nav navbar-nav navbar-right">
+          <center>
+          <p><span class="glyphicon glyphicon-map-marker"></span> Jalandhar, India &nbsp;
+          <span class="glyphicon glyphicon-phone"></span> +91 9852349455
+          <span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+        </div> </center>
+      </font>
+       
+</footer>
+
+
+</html>
