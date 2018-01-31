@@ -46,17 +46,40 @@ function processData(data) {
 document.querySelector('.box').innerHTML=articleItems
 }
 }
+var strUser2;
 
-var strUser2 ;
 var search;
-function test(){
+var items=[];
+ var checkboxes
+console.log(strUser2)
 
-  // Inorder to get the Test as value i.e "Communication"
-  var sel2 = document.getElementById("soflow");
-  strUser2 = sel2.options[sel2.selectedIndex].value;
-  console.log(strUser2);
+var expanded = false;
 
+function test() {
+   checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
   }
+}function getSelectedChbox() {
+ checkboxes.style.display="none"
+ expanded=false
+  var selchbox = []; 
+  var inpfields = document.getElementsByTagName('input');
+  var nr_inpfields = inpfields.length;
+
+  for(var i=0; i<nr_inpfields; i++) {
+    if(inpfields[i].type == 'checkbox' && inpfields[i].checked == true) selchbox.push(inpfields[i].value);
+  }
+
+  console.log(selchbox.toString());
+  strUser2=selchbox.toString();
+console.log(strUser2)
+}
+
 
   function answers(){
 
